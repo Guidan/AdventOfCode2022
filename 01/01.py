@@ -1,5 +1,5 @@
 # file listing elves and their calories
-with open("input.txt") as file:
+with open("./01/input.txt") as file:
     food = file.readlines()
 
 
