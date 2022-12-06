@@ -1,14 +1,13 @@
 with open("input.txt") as file:
-    signal = [line.strip() for line in file]
+    signal = file.readline()
 
 
 def isUnique(string: str) -> bool:
     return len(set(string)) == len(string)
 
 
-def cycleSignal(signal_list, length: int):
+def cycleSignal(signal, length: int):
     total_char = 0
-    signal = signal_list[0]
     for index, letter in enumerate(signal):
         if isUnique(signal[index:index+length]):
             print(signal[index:index+length])
@@ -17,4 +16,4 @@ def cycleSignal(signal_list, length: int):
     return total_char
 
 
-print(cycleSignal(signal, 14))
+print(cycleSignal(signal, 4))
