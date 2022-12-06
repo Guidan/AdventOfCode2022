@@ -3,9 +3,9 @@ with open("input.txt") as file:
 
 
 def findCommonLetter(sack: str):
-    first_sack = sack[0:(int(len(sack)/2))]
-    second_sack = sack[(int(len(sack)/2)):]
-    print(first_sack+":"+second_sack)
+    first_sack = sack[0:(int(len(sack) / 2))]
+    second_sack = sack[(int(len(sack) / 2)):]
+    print(first_sack + ":" + second_sack)
     common_letter = None
     for first_letter in first_sack:
         for second_letter in second_sack:
@@ -23,10 +23,10 @@ def findIDCard(sacks: list[str]):
     for index, sack in enumerate(sacks):
         match elf:
             case 1:
-                temp_sack = ''.join(set(sack).intersection(sacks[index+1]))
+                temp_sack = ''.join(set(sack).intersection(sacks[index + 1]))
                 elf = elf + 1
             case 2:
-                common_letter = ''.join(set(temp_sack).intersection(sacks[index+1]))
+                common_letter = ''.join(set(temp_sack).intersection(sacks[index + 1]))
                 score = score + findScoreCard(common_letter)
                 elf = elf + 1
             case 3:
@@ -37,9 +37,9 @@ def findIDCard(sacks: list[str]):
 def findScoreCard(letter: str):
     score = 0
     if letter.islower():
-        score = score + ord(letter)-96
+        score = score + ord(letter) - 96
     else:
-        score = score + ord(letter)-38
+        score = score + ord(letter) - 38
     return score
 
 
@@ -48,10 +48,11 @@ def findScore(sacks: list):
     for sack in sacks:
         common_letter = findCommonLetter(sack)
         if common_letter.islower():
-            score = score + ord(common_letter)-96
+            score = score + ord(common_letter) - 96
         else:
-            score = score + ord(common_letter)-38
+            score = score + ord(common_letter) - 38
     return score
+
 
 # solution 1
 # print(findScore(rucksacks))
